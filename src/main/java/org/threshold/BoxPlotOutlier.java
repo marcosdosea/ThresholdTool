@@ -103,7 +103,7 @@ public class BoxPlotOutlier {
 			endList1 = (listValues.length - 1) / 2;
 			startList2 = (listValues.length + 1) / 2;
 		}
-		ArrayList<Double> listCalculated = new ArrayList<>();
+		ArrayList<Double> listCalculated = new ArrayList<Double>();
 		for (int i = 0; i < endList1; i++) {
 			for (int j = startList2; j < listValues.length; j++) {
 				double calculated = 0;

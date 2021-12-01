@@ -35,7 +35,7 @@ public abstract class AbstractTechnique {
 		HashMap<Integer, BigDecimal> distribuicaoValorMetrica = distribuicaoCodigoPorMetrica.get(designRole);
 
 		if (distribuicaoValorMetrica == null)
-			distribuicaoValorMetrica = new HashMap<>();
+			distribuicaoValorMetrica = new HashMap<Integer, BigDecimal>();
 		BigDecimal totalValorAgrupado = distribuicaoValorMetrica.get(valorMetrica);
 
 		if (totalValorAgrupado == null) {
@@ -115,7 +115,7 @@ public abstract class AbstractTechnique {
 			HashMap<String, Long> linhasDeCodigoPorDesignRole) {
 		long total = 0;
 		if (linhasDeCodigoPorDesignRole == null)
-			linhasDeCodigoPorDesignRole = new HashMap<>();
+			linhasDeCodigoPorDesignRole = new HashMap<String, Long>();
 
 		for (ClassMetricResult classe : classes) {
 			for (MethodMetricResult method : classe.getMetricsByMethod().values()) {
@@ -123,7 +123,7 @@ public abstract class AbstractTechnique {
 				Long somaLocPorDesignRole = linhasDeCodigoPorDesignRole.get(classe.getDesignRole());
 				if (somaLocPorDesignRole == null) {
 					
-					linhasDeCodigoPorDesignRole.put(classe.getDesignRole(), new Long(method.getLinesOfCode()));
+					linhasDeCodigoPorDesignRole.put(classe.getDesignRole(), Long.valueOf(method.getLinesOfCode()));
 				} else {
 					somaLocPorDesignRole += method.getLinesOfCode();
 					linhasDeCodigoPorDesignRole.put(classe.getDesignRole(), somaLocPorDesignRole);

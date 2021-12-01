@@ -30,10 +30,10 @@ public class PercentilTechnique extends AbstractTechnique {
 		PersistenceMechanism pm = new CSVFile(fileResultado);
 		pm.write("DesignRole;LOC;CC;Efferent;NOP;");
 
-		ArrayList<Integer> listaLOC = new ArrayList<>();
-		ArrayList<Integer> listaCC = new ArrayList<>();
-		ArrayList<Integer> listaEfferent = new ArrayList<>();
-		ArrayList<Integer> listaNOP = new ArrayList<>();
+		ArrayList<Integer> listaLOC = new ArrayList<Integer>();
+		ArrayList<Integer> listaCC = new ArrayList<Integer>();
+		ArrayList<Integer> listaEfferent = new ArrayList<Integer>();
+		ArrayList<Integer> listaNOP = new ArrayList<Integer>();
 
 		for (ClassMetricResult classe : classes) {
 			for (MethodMetricResult method : classe.getMetricsByMethod().values()) {

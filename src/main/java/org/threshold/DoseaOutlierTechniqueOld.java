@@ -25,18 +25,18 @@ public class DoseaOutlierTechniqueOld extends AbstractTechnique {
 		PersistenceMechanism pm = new CSVFile(fileResultado);
 		pm.write("DesignRole;LOC;CC;Efferent;NOP;");
 
-		HashMap<String, Long> linhasDeCodigoPorDesignRole = new HashMap<>();
+		HashMap<String, Long> linhasDeCodigoPorDesignRole = new HashMap<String, Long>();
 		long totalLoc = obterTotalLinhasCodigoPorDesignRole(classes, linhasDeCodigoPorDesignRole);
 
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<String, HashMap<Integer, BigDecimal>>();
 
-		HashMap<String, List<Integer>> metricasLOCPorDesignRole = new HashMap<>();
-		HashMap<String, List<Integer>> metricasCCPorDesignRole = new HashMap<>();
-		HashMap<String, List<Integer>> metricasEfferentPorDesignRole = new HashMap<>();
-		HashMap<String, List<Integer>> metricasNOPPorDesignRole = new HashMap<>();
+		HashMap<String, List<Integer>> metricasLOCPorDesignRole = new HashMap<String, List<Integer>>();
+		HashMap<String, List<Integer>> metricasCCPorDesignRole = new HashMap<String, List<Integer>>();
+		HashMap<String, List<Integer>> metricasEfferentPorDesignRole = new HashMap<String, List<Integer>>();
+		HashMap<String, List<Integer>> metricasNOPPorDesignRole = new HashMap<String, List<Integer>>();
 
 		for (ClassMetricResult classe : classes) {
 			for (MethodMetricResult method : classe.getMetricsByMethod().values()) {

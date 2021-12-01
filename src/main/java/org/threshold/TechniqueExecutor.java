@@ -144,7 +144,7 @@ public class TechniqueExecutor {
 							classMetric.setLoc(Integer.parseInt(values[13]));
 						else
 							classMetric.setLoc(0);
-						classMetric.setMetricsByMethod(new HashMap<>());
+						classMetric.setMetricsByMethod(new HashMap<MethodData, MethodMetricResult>());
 						report.add(classMetric);
 					}
 					count++;
@@ -282,7 +282,7 @@ public class TechniqueExecutor {
 	}
 
 	public ArrayList<String> lerProjetos(String nomeArquivo) {
-		ArrayList<String> projetos = new ArrayList<>();
+		ArrayList<String> projetos = new ArrayList<String>();
 		String arquivo = System.getProperty("user.dir") + "\\" + nomeArquivo;
 		File file = new File(arquivo);
 		try {

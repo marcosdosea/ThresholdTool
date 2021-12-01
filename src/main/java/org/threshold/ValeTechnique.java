@@ -23,16 +23,16 @@ public class ValeTechnique extends AbstractTechnique {
 		PersistenceMechanism pm = new CSVFile(fileResultado);
 		pm.write("DesignRole;LOC;CC;Efferent;NOP;CLOC;");
 
-		HashMap<String, Long> metodosPorDesignRole = new HashMap<>();
+		HashMap<String, Long> metodosPorDesignRole = new HashMap<String, Long>();
 		long totalMetodos = obterTotalMetodosPorDesignRole(classes, metodosPorDesignRole);
 
 		// METHOD THRESHOLD
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<String, HashMap<Integer, BigDecimal>>();
 		// CLASS THRESHOLD
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCLOC = new HashMap<>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCLOC = new HashMap<String, HashMap<Integer, BigDecimal>>();
 		
 		
 		for (ClassMetricResult classe : classes) {
@@ -73,14 +73,14 @@ public class ValeTechnique extends AbstractTechnique {
 			HashMap<String, Long> metodosPorDesignRole) {
 		long total = 0;
 		if (metodosPorDesignRole == null)
-			metodosPorDesignRole = new HashMap<>();
+			metodosPorDesignRole = new HashMap<String, Long>();
 
 		for (ClassMetricResult classe : classes) {
 			int numeroMetodosClasse = classe.getMetricsByMethod().size();
 			total += numeroMetodosClasse;
 			Long somaMetodosPorDesignRole = metodosPorDesignRole.get(classe.getDesignRole());
 			if (somaMetodosPorDesignRole == null) {
-				metodosPorDesignRole.put(classe.getDesignRole(), new Long(numeroMetodosClasse));
+				metodosPorDesignRole.put(classe.getDesignRole(), Long.valueOf(numeroMetodosClasse));
 			} else {
 				somaMetodosPorDesignRole += numeroMetodosClasse;
 				metodosPorDesignRole.put(classe.getDesignRole(), somaMetodosPorDesignRole);

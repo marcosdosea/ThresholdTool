@@ -32,20 +32,20 @@ public class DoseaDesignRoleTechnique extends AbstractTechnique {
 		PersistenceMechanism pm = new CSVFile(fileResultado);
 		pm.write("DesignRole;LOC;CC;Efferent;NOP;CLOC;%LOCDR");
 
-		HashMap<String, Long> linhasDeCodigoPorDesignRole = new HashMap<>();
+		HashMap<String, Long> linhasDeCodigoPorDesignRole = new HashMap<String, Long>();
 		long totalLoc = obterTotalLinhasCodigoPorDesignRole(classes, linhasDeCodigoPorDesignRole);
 
-		HashMap<String, Long> linhasDeCodigoPorDesignRoleProjetoAnalisado = new HashMap<>();
+		HashMap<String, Long> linhasDeCodigoPorDesignRoleProjetoAnalisado = new HashMap<String, Long>();
 		long totalLocProjetoAnalisado = obterTotalLinhasCodigoPorDesignRole(classesProjetoAnalisado,
 				linhasDeCodigoPorDesignRoleProjetoAnalisado);
 
 		// METHOD THRESHOLDS
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<>();
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaLOC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCC = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaEfferent = new HashMap<String, HashMap<Integer, BigDecimal>>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaNOP = new HashMap<String, HashMap<Integer, BigDecimal>>();
 		// CLASS THRESHOLDS
-		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCLOC = new HashMap<>();
+		HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetricaCLOC = new HashMap<String, HashMap<Integer, BigDecimal>>();
 
 		for (ClassMetricResult classe : classes) {
 			for (MethodMetricResult method : classe.getMetricsByMethod().values()) {
