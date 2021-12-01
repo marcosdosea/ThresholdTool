@@ -122,6 +122,7 @@ public abstract class AbstractTechnique {
 				total += method.getLinesOfCode();
 				Long somaLocPorDesignRole = linhasDeCodigoPorDesignRole.get(classe.getDesignRole());
 				if (somaLocPorDesignRole == null) {
+					
 					linhasDeCodigoPorDesignRole.put(classe.getDesignRole(), new Long(method.getLinesOfCode()));
 				} else {
 					somaLocPorDesignRole += method.getLinesOfCode();
