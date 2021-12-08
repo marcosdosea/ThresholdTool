@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import org.designroleminer.ClassMetricResult;
+import org.designroleminer.LimiarMetrica;
 import org.designroleminer.MethodMetricResult;
-import org.designroleminer.smelldetector.model.LimiarMetrica;
 import org.repodriller.persistence.PersistenceMechanism;
 import org.repodriller.persistence.csv.CSVFile;
 

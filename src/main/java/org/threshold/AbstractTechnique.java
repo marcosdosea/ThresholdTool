@@ -8,12 +8,12 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import org.designroleminer.ClassMetricResult;
+import org.designroleminer.LimiarMetrica;
 import org.designroleminer.MethodMetricResult;
-import org.designroleminer.smelldetector.model.LimiarMetrica;
+
 
 public abstract class AbstractTechnique {
 
-	
 	/**
 	 * Generate some result from collected metrics
 	 * 
@@ -58,9 +58,10 @@ public abstract class AbstractTechnique {
 	 * @param designRole
 	 * @param metrica
 	 * @param percentilExato
+	 * @return 
 	 * @return
 	 */
-	protected LimiarMetrica obterLimiaresMetrica(
+	protected  LimiarMetrica obterLimiaresMetrica(
 			HashMap<String, HashMap<Integer, BigDecimal>> distribuicaoCodigoPorMetrica, long totalValorAgrupado,
 			Integer percentilMinimo, Integer percentilMedio, Integer percentilMaximo, String designRole, String metrica) {
 		HashMap<Integer, BigDecimal> valoresMetricas = distribuicaoCodigoPorMetrica.get(metrica + designRole);
@@ -122,7 +123,7 @@ public abstract class AbstractTechnique {
 				total += method.getLinesOfCode();
 				Long somaLocPorDesignRole = linhasDeCodigoPorDesignRole.get(classe.getDesignRole());
 				if (somaLocPorDesignRole == null) {
-					
+
 					linhasDeCodigoPorDesignRole.put(classe.getDesignRole(), Long.valueOf(method.getLinesOfCode()));
 				} else {
 					somaLocPorDesignRole += method.getLinesOfCode();
